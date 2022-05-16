@@ -1,0 +1,123 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("../imagem/fundo.jpg");
+    background-position: 50% 70%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input [type=text]{
+    display: block;
+    height: 55px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 1px solid black;
+    font-size: 16pt;
+    padding: 10px 20px;
+    /*background-color: rgba(255, 255, 255,0.01);fundo do nome e password*/
+    border: none;
+}
+
+input [type=radio]{
+    display: block;
+    height: 30px;
+    width: 30;
+    /*background-color: rgba(255, 255, 255,0.01);fundo do nome e password*/
+    border: none;
+}
+
+
+div#corpo-form{
+    /*background-color: red;*/
+    width: 420px  ;
+    margin: 130px auto 0px auto;
+}
+div#corpo-form-cad{
+    /*background-color: red;*/
+    width: 420px  ;
+    margin: 80px auto 0px auto;
+}
+div#corpo-form h1,div#corpo-form-cad h1{
+    text-align: center;
+    padding: 20px;
+}
+a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+
+}
+a:hover{
+    text-decoration: underline;
+
+}
+
+input [type=submit]{
+    background-color:white;
+    
+
+}
+
+/* #checkbox{
+    display: none;
+}
+.toggler{
+    display: block;
+    width: 60px;
+    height: 31px;
+    border: 2px solid rebeccapurple;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+.ball,
+.sun,
+.moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ball{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: blue;
+    left: 1px;
+    z-index: 10;
+    transition: transform
+    .5s ease-in-out;
+
+}
+
+.sun{
+    left: 5px;
+}
+.moon{
+    right:5px;
+}
+#checkbox:checked + .ball {
+    transform: translate(29px, -50%);
+} */
+
+div#msg-sucesso{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(50, 205, 50, .3);
+    border: 1px solid rgb(34, 139, 34);
+
+}
+div.msg-erro{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(250, 128, 114, .3);
+    border: 1px solid rgb(165, 42, 42);
+
+
+}

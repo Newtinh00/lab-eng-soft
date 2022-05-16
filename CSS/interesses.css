@@ -1,0 +1,39 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+  body{
+    background-image: url("../imagem/fundo.jpg");
+    background-position: 50% 70%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+  form {
+    display: block;
+    height: 55px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 30px;
+    border: 1px solid black;
+    font-size: 16pt;
+    padding: 10px 20px;
+    /*background-color: rgba(255, 255, 255,0.01);fundo do nome e password*/
+    border: none;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  fieldset {
+    width: 420px  ;
+    margin: 130px auto 0px auto;
+  }
+  
+  legend {
+    fill: 10px;
+    background-color: blueviolet;
+    color: cyan;
+  }
