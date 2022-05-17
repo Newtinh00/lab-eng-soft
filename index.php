@@ -7,17 +7,19 @@ $u = new Usuario("app","localhost","root","");
 <head>
     <meta charset="utf-8"/>
     <title>Projeto Login</title>
-    <link rel="stylesheet" href = "CSS/estilo.css">
+    <link rel="stylesheet" href ="CSS/estilo.css">
 </head>
 <body>
     <div id="corpo-form">
     <h1>Entrar</h1>
+
     <form method="POST">
-        <input type="email" placeholder="Usuário"name="email">
-        <input type="password" placeholder="Senha"name="senha">
-        <input type="submit" value="Acessar">
-        <a href="cadastrar.php">Ainda nao é inscrito?<strong> Cadastrar-se</strong></a>
+        <input type="email"  class="caixa" placeholder="Usuário"name="email">
+        <input type="password" class="caixa" placeholder="Senha"name="senha">
+        <input type="submit" class="caixa" value="Acessar">
+        <a href="cadastrar.php">Ainda não tem cadastro?<strong> Cadastrar-se aqui!</strong></a>
     </form>
+
     </div>
     <!-- <label for="checkbox" class="toggler">
         <input type="checkbox" id="checkbox">

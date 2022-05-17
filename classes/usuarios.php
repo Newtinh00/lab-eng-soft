@@ -24,12 +24,11 @@ class Usuario{
         else
         {
             //caso nao cadastrado
-            $sql = $this->pdo->prepare("INSERT INTO usuarios (nome,telefone,email,senha,id_genero,id_interesse) VALUES (:n, :t, :e, :s,:g,:i)");
+            $sql = $this->pdo->prepare("INSERT INTO usuarios (nome,telefone,email,senha,id_genero) VALUES (:n, :t, :e, :s,:g,:i)");
             $sql->bindValue(":n",$nome);
             $sql->bindValue(":t",$telefone);
             $sql->bindValue(":e",$email);
             $sql->bindValue(":g",$genero);
-            $sql->bindValue(":i",$interesse);
             $sql->bindValue(":s",$senha);
             $sql->execute();
             return true; //tudo ok
