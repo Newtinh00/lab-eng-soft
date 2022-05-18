@@ -43,7 +43,7 @@ $u = new Usuario("app","localhost","root","");
             }   
         }  
     ?>   
-         <button type="submit" name="save">save</button>
+         <button type="submit" name="savet">save</button>
 </form>
 
 	

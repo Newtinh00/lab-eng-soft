@@ -40,7 +40,7 @@
             <input type="password" class="caixa" name="confsenha" placeholder="Confirmar senha" maxlength="15">
 
             <?php
-                
+               
             $dados = $u->buscaInteresse();
 
                 for ($i=0; $i<count($dados); $i++) { 
@@ -63,15 +63,17 @@
                 }  
             ?>
 
-            <input type="submit" class="caixa" value="Cadastrar">
+            <input type="submit" class="caixa" name="save" value="Cadastrar">
             
         </form>
         </div>
     
 
         <?php
+
+        
         //verificar se clicou no botao
-        if(isset($_POST['nome']))//verifica a existencia do arrey "POST"
+        if(isset($_POST['nome']) && isset($_POST['save']))//verifica a existencia do arrey "POST"
         {
             $nome = addslashes($_POST['nome']);
             $telefone= addslashes($_POST['telefone']);
@@ -79,7 +81,9 @@
             $senha= addslashes($_POST['senha']);
             $confirmarSenha= addslashes($_POST['confsenha']);
             $genero =addslashes($_POST['genero']);
-            $interesse = $_POST['interesses'];
+
+            $interesses =  $_POST['interesses'];
+
             //verificar se esta preenchido
             if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha) && !empty($genero)) 
             {
@@ -88,13 +92,23 @@
                 {
                     if($senha == $confirmarSenha)
                     {
-                    if( $u->cadastrar($nome,$telefone,$email,$senha,$genero,$interesse))
+                    if( $u->cadastrar($nome,$telefone,$email,$senha,$genero))
                     {
                         ?>
                         <div id="msg-sucesso"> Cadastrado com sucesso, acesse para entrar!</div>
 
+                        <?php 
+                            $ultimo_user = $u->ultimoInsert();
+                            
+                            foreach ($interesses as $item) {
+
+                                $u->insereInteresse($item, $ultimo_user);
+                            }
+  
+                        ?>
+
                         <?php
-                            header("location: index.php");
+                            //header("location: index.php");
                             ?>
 
                         <?php

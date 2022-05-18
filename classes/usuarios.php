@@ -12,7 +12,8 @@ class Usuario{
             $msgErro=$e -> getMessage();
         }   
     }
-    public function cadastrar($nome, $telefone,$email,$senha,$genero,$interesse){
+
+    public function cadastrar($nome, $telefone,$email,$senha,$genero){
         //verificar cadastro existente
         $sql = $this->pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
         $sql->bindValue(":e",$email);
@@ -24,18 +25,29 @@ class Usuario{
         else
         {
             //caso nao cadastrado
-            $sql = $this->pdo->prepare("INSERT INTO usuarios (nome,telefone,email,senha,id_genero) VALUES (:n, :t, :e, :s,:g,:i)");
+            $sql = $this->pdo->prepare("INSERT INTO usuarios (nome,telefone,email,senha,id_genero) VALUES (:n, :t, :e, :s,:g)");
             $sql->bindValue(":n",$nome);
             $sql->bindValue(":t",$telefone);
             $sql->bindValue(":e",$email);
             $sql->bindValue(":g",$genero);
             $sql->bindValue(":s",$senha);
+
             $sql->execute();
+            
+
             return true; //tudo ok
 
         }
 
+
     }
+
+    public function ultimoInsert(){
+        $LAST_ID = $this->pdo->lastInsertId();
+
+        return $LAST_ID;
+    }
+    
     public function logar($email,$senha){
         
         //verificar se o email e senha estao cadastrados, se sim
@@ -43,6 +55,7 @@ class Usuario{
         $sql->bindValue(":e",$email);
         $sql->bindValue(":s",$senha);
         $sql->execute();
+
         if($sql->rowCount()> 0)
         {
             //entrar no sistema (sessao)
@@ -66,5 +79,19 @@ class Usuario{
         return $res;
 
     }
+
+    public function insereInteresse($interesse, $usuario){
+
+        $sql = $this->pdo->prepare("INSERT INTO interesseusuario (id_interesse, id_usuario) VALUES (:i, :u)");
+
+            $sql->bindValue(":i", $interesse);
+            $sql->bindValue(":u", $usuario);
+            $sql->execute();
+
+            return true;
+
+
+    }
+
 }
 ?>
