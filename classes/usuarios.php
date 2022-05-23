@@ -13,7 +13,7 @@ class Usuario{
         }   
     }
 
-    public function cadastrar($nome, $telefone,$email,$senha,$genero){
+    public function cadastrar($nome, $telefone,$email,$senha,$genero,$dt_nascimento){
         //verificar cadastro existente
         $sql = $this->pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
         $sql->bindValue(":e",$email);
@@ -25,12 +25,13 @@ class Usuario{
         else
         {
             //caso nao cadastrado
-            $sql = $this->pdo->prepare("INSERT INTO usuarios (nome,telefone,email,senha,id_genero) VALUES (:n, :t, :e, :s,:g)");
+            $sql = $this->pdo->prepare("INSERT INTO usuarios (nome,telefone,email,senha,id_genero, dt_nascimento) VALUES (:n, :t, :e, :s,:g, :dtn)");
             $sql->bindValue(":n",$nome);
             $sql->bindValue(":t",$telefone);
             $sql->bindValue(":e",$email);
             $sql->bindValue(":g",$genero);
             $sql->bindValue(":s",$senha);
+            $sql->bindValue(":dtn",$dt_nascimento);
 
             $sql->execute();
             
@@ -89,9 +90,60 @@ class Usuario{
             $sql->execute();
 
             return true;
-
-
     }
+
+
+    public function insereFoto ($image, $usuario){
+
+        $sql = $this->pdo->prepare("INSERT INTO fotos(foto, id_usuario) VALUES (:f, :u)");
+
+        $sql->bindValue(":f", $image);
+        $sql->bindValue(":u", $usuario);
+        $sql->execute();
+
+        return true;
+    }
+
+    public function buscaDados($id){
+
+        $sql = $this->pdo->prepare("SELECT *  FROM usuarios WHERE id_usuario = :id");
+
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function calculaData($id){
+        $sql = $this->pdo->prepare("SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(), dt_nascimento)), '%Y') +0 AS Age from usuarios where id_usuario = :id LIMIT 1");
+
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function mostraInteresse($id){
+
+        $sql = $this->pdo->prepare("SELECT usuarios.id_usuario,interesse FROM usuarios 
+        INNER JOIN interesseusuario 
+        ON usuarios.id_usuario = interesseusuario.id_usuario
+        INNER JOIN interesses
+        ON interesses.id_interesse = interesseusuario.id_interesse
+        group by interesse, usuarios.id_usuario
+        having id_usuario = :id");
+
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+
 
 }
 ?>

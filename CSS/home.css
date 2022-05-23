@@ -1,0 +1,118 @@
+body{
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+  font-family: Calibri;
+  background-color: #f9f9f9;
+}
+
+/*Barra Superior*/
+.superior{
+  background: #e34467;
+  padding: 5px;
+  width: 100%;
+  height: 35px;
+}
+
+.superior ion-icon{
+  color: white;
+  font-size: 30px;
+  float: right;
+  margin-right: 20px;
+  position: relative;
+}
+
+.superior ion-icon:hover{
+  color: black;
+  transition: .5s;
+}
+
+/*Menu Lateral*/
+.lateral{
+  width: 219px;
+  min-height: 590px;
+  top: 36px;
+  background-color: #e34467;
+  color: #fff;
+}
+
+.lateral h3,h4{
+  margin: 0px;
+  padding: 0px;
+}
+
+.lateral .user{
+  width: 100%;
+  height: 80px;
+  border-bottom: 2px solid #ed2651;
+  
+}
+.lateral .user ion-icon{
+  font-size: 60px;
+}
+
+.lateral .user .user_details{
+  display: flex;
+  padding: 5px 0px 5px 5px;
+}
+
+.lateral .user .user_info{
+  margin-top: 13px;
+  margin-left: 3px;
+}
+/*superior, direita, inferior e esquerda*/
+
+.lateral .user .user_info h3{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.lateral .user .user_info h4{
+  font-size: 13px;
+  font-weight: 300;
+  margin-top: -2px;
+}
+
+.lateral .options ul{
+  list-style: none;
+  padding: 0px;
+}
+
+.lateral .options ul li{
+  color: #fff;
+  display: flex;
+  padding-left: 15px;
+}
+
+.lateral .options ul a:hover li{
+  border-left: 3px solid #fff;
+}
+
+.lateral .options a{
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.lateral .options ion-icon{
+  font-size: 28px;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.lateral .options p{
+  margin-top: 9px;
+  margin-left: 5px;
+}
+
+
+.principal{
+    display: flex;
+}
+
+.conteudo{
+  background-color: #f9f9f9;
+  width:100%;
+  
+}
+
