@@ -10,16 +10,22 @@ $u = new Usuario("app","localhost","root","");
     <link rel="stylesheet" href ="CSS/estilo.css">
 </head>
 <body>
-    <div id="corpo-form">
-    <h1>Entrar</h1>
 
-    <form method="POST">
-        <input type="email"  class="caixa" placeholder="Usuário"name="email">
-        <input type="password" class="caixa" placeholder="Senha"name="senha">
-        <input type="submit" class="caixa" value="Acessar">
-        <a href="cadastrar.php">Ainda não tem cadastro?<strong> Cadastrar-se aqui!</strong></a>
-    </form>
-
+    <div class="caixa-grande">
+        <div class="esquerda">
+            
+            <form method="POST">
+                <h1>Entrar</h1>
+                <input type="email"  class="caixa" placeholder="Usuário"name="email">
+                <input type="password" class="caixa" placeholder="Senha"name="senha">
+                <input type="submit" class="button" value="Acessar">
+                <p>Ainda não tem cadastro?</p>
+                <a href="cadastrar.php"><strong> Cadastrar-se aqui!</strong></a>
+            </form>
+        </div>
+        <div class="direita">
+            <img src="imagem/date.jpg">
+        </div>
     </div>
     <!-- <label for="checkbox" class="toggler">
         <input type="checkbox" id="checkbox">
