@@ -7,6 +7,10 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+input:focus{
+    outline: none;
+}
+
 .login{
     display: flex;
     background-color: #fff;
@@ -150,7 +154,6 @@ div.msg-erro{
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 7px 7px 7px 6px rgba(0,0,0, .5);
 }
 
 .caixa-cadastro h1{

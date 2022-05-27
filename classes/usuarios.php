@@ -143,7 +143,25 @@ class Usuario{
         return $res;
     }
 
+    public function buscaImagem($id){
+        $sql = $this->pdo->prepare("SELECT foto FROM fotos WHERE id_usuario = :id");
 
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+
+    public function deletarUser($id){
+
+        $sql = $this->pdo->prepare("DELETE FROM usuarios WHERE id_usuario = :id");
+
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
 
 }
 ?>

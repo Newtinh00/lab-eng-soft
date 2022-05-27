@@ -78,6 +78,15 @@ $u = new Usuario("app","localhost","root","");
         }
     }
     ?>
+
+    <?php 
+        if(isset($_POST['user_delete'])){
+
+            $user_delete = $_POST['user_delete'];
+            $u->deletarUser($user_delete);
+            header("location: sair.php");
+        }
+    ?>
     </body>
 
     

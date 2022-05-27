@@ -117,16 +117,19 @@ body{
 .meu_perfil{
   background-color: #fff;
   border: 2px solid #dcdcdc;
-  width: 340px;
+  width: 320px;
   border-radius: 10px;
-  padding: 0 10px 20px 10px;
-  top:40px;
+  top:20px;
   right: 100px;
   position: relative;
   float: right;
 }
 
-.meu_perfil h1{
+.meu_perfil .info{
+  padding: 10px 15px 2px 15px;
+}
+
+.meu_perfil .font-h1{
   font-size: 23px;
   margin: 0px;
   padding: 0px;
@@ -134,7 +137,7 @@ body{
   margin-bottom: 5px;
 }
 
-.meu_perfil h2{
+.meu_perfil .font-h2{
   font-size: 23px;
   margin: 0px;
   padding: 0px;
@@ -142,19 +145,30 @@ body{
   font-weight: 100;
 }
 
-.meu_perfil h3{
+.meu_perfil .font-h3{
   color: #545353;
   font-weight: 500;
   margin: 15px 0px 5px 0px;
   padding: 0px;
+   font-size: 17px;
 }
 
-.meu_perfil h4{
+.meu_perfil .font-h4{
   color: #9c9c9c;
   font-weight: 100;
+  font-size: 16px;
+  display: flex;
+  padding: 0px;
+  margin: -5px;
+  margin-top: 2px;
 }
 
-.meu_perfil h4 ion-icon {
+.meu_perfil .font-h4 h4{
+  padding: 0px;
+  margin: -10px;
+}
+
+.meu_perfil .font-h4 ion-icon {
   margin-right: 5px;
   padding: 5px;
 }
@@ -167,4 +181,16 @@ body{
 
 .meu_perfil .primeiro_dado{
   display: flex;
+}
+.meu_perfil .fotos{
+  width: 320px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.meu_perfil .fotos img{
+  width: 100%;
+  height: 400px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
