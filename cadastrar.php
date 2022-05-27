@@ -6,70 +6,80 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Projeto Login</title>
-        <link rel="stylesheet" href ="CSS/estilo.css">
+        <title>Cadastrar</title>
+       <link rel="stylesheet" href ="CSS/estilo.css">
     </head>
     <body>
-        <div id="corpo-form-cad">
-        <h1>Cadastrar</h1>
-        <form method="POST" enctype="multipart/form-data">
-            <input type="text" class="caixa" name="nome" placeholder="Nome Completo" maxlength="30">
-            <input type="text" class="caixa" name="telefone"placeholder="Telefone" maxlength="30">
-            <input type="date" class="caixa" name="dt_nascimento">
-            <input type="email" class="caixa" name="email"placeholder="E-mail"maxlength="40">
-            
-            <div class="radio-button">
-                <label for="masc">
-                    <input type="radio" id="masc" name="genero" value=1>
-                    Masculino
-                </label>
-                
-                <label for="fem">
-                    <input type="radio" id="fem" name="genero" value=2>
-                    Feminino
-                </label>
-
-                
-                <label for="n-bin">
-                <input type="radio" id="n-bin" name="genero" value=3>    
-                    Não-Binário
-                </label>
-            </div>  
-            
-
-            <input type="password" class="caixa" name="senha"placeholder="Senha" maxlength="15">
-            <input type="password" class="caixa" name="confsenha" placeholder="Confirmar senha" maxlength="15">
-
-            <?php
-               
-            $dados = $u->buscaInteresse();
-
-                for ($i=0; $i<count($dados); $i++) { 
-                    foreach ($dados[$i] as $key => $value){
-            ?> 
-                        <label>
-                            <?php
-                                if($key != 'id_interesse'){
-                                    echo $value;
-                                }
-                                if($key == 'id_interesse'){
-                            ?>
-                                <input type="checkbox" class="interesse" name="interesses[]" value="<?php echo $value;?>">
-                            <?php
-                                }
-                            ?>
+        <div class="caixa-cadastro">
+             <h1>Cadastro</h1>
+            <div class="cadastro">
+                <form method="POST" enctype="multipart/form-data">
+        
+                    <input type="text" class="caixa" name="nome" placeholder="Nome Completo" maxlength="30">
+                    <input type="text" class="caixa" name="telefone"placeholder="Telefone" maxlength="30">
+                    <input type="date" class="caixa" name="dt_nascimento">
+                    <input type="email" class="caixa" name="email"placeholder="E-mail"maxlength="40">
+                    
+                    <div class="radio-button">
+                        <label for="masc">
+                            <input type="radio" id="masc" name="genero" value=1>
+                            Masculino
                         </label>
-            <?php
-                    }   
-                }  
-            ?>
+                        
+                        <label for="fem">
+                            <input type="radio" id="fem" name="genero" value=2>
+                            Feminino
+                        </label>
 
-            <input type="file" name="image[]" multiple> <br><br>
-            <input type="submit" class="caixa" name="save" value="Cadastrar">
-            
-        </form>
+                        
+                        <label for="n-bin">
+                        <input type="radio" id="n-bin" name="genero" value=3>    
+                            Não-Binário
+                        </label>
+                    </div>
+                    <fieldset>
+                        <legend>Fotos</legend>
+                    <input type="file" name="image[]" multiple>
+                    </fieldset>   
+
+                    <input type="password" class="caixa" name="senha"placeholder="Senha" maxlength="15">
+                    <input type="password" class="caixa" name="confsenha" placeholder="Confirmar senha" maxlength="15">
+                    <hr>
+
+               <div class="checkbox-interesse">
+                <p>Interesses</p>
+             
+                    <?php
+                       
+                    $dados = $u->buscaInteresse();
+
+                        for ($i=0; $i<count($dados); $i++) { 
+                            foreach ($dados[$i] as $key => $value){
+                    ?> 
+                                <label>
+                                    <?php
+                                        if($key != 'id_interesse'){
+                                            echo $value;
+                                        }
+                                        if($key == 'id_interesse'){
+                                    ?>
+                                        <input type="checkbox" class="interesse" name="interesses[]" value="<?php echo $value;?>">
+                                    <?php
+                                        }
+                                    ?>
+                                </label>
+                    <?php
+                            }   
+                        }  
+                    ?>
+
+
+                </div>
+                    <input type="submit" class="button" name="save" value="Cadastrar">
+                    
+                </form>
+            </div>
         </div>
-    
 
         <?php
 

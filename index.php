@@ -11,9 +11,8 @@ $u = new Usuario("app","localhost","root","");
 </head>
 <body>
 
-    <div class="caixa-grande">
+    <div class="login">
         <div class="esquerda">
-            
             <form method="POST">
                 <h1>Entrar</h1>
                 <input type="email"  class="caixa" placeholder="Usuário"name="email">

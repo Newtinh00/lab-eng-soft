@@ -7,34 +7,59 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.caixa-grande form{
+.login{
+    display: flex;
+    background-color: #fff;
+    width: 700px;
+    height: 450px;
+    border-radius: 5px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-shadow: 7px 7px 7px 6px rgba(0,0,0, .5);
+}
+
+.login .esquerda{
+    width: 50%;
+}
+.login .direita{
+    width: 50%;
+}
+
+.login h1{
+    text-align: center;
+    margin-bottom:20px;
+    font-size: 2rem;
+}
+
+.login img{
+    width: 350px;
+    height: 450px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.login form{
+    margin-top: 80px;
     padding: 18px;
     text-align: center;
 }
 
-.caixa-grande a, p{
+.login a, p{
     color: #000;  
-    font-size: 14px; 
+    font-size: 1rem; 
    
 }
 
 input[type="email"], 
-input[type="password"]{
+input[type="password"],
+input[type="text"],
+input[type="date"]{
     border-bottom:  2px solid #e34467;
+    margin: 0px 30px 12px 30px;
+    font-size: 1rem;
 }
-
-
-.radio-button{
-   display: block;
-}
-
-.radio-button label{
-    display: flex;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-right: 5px;
-    font-weight: bold;
-}   
 
 .button{
     background-color: #e34467;
@@ -44,8 +69,12 @@ input[type="password"]{
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.login .button{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .button:hover{
@@ -56,6 +85,8 @@ input[type="password"]{
 input[type="radio"]{
     width: 30px;
     height: 15px;
+    background-color: #e34467;
+    border: 1px solid #e34467;
 }
 
 input [type="checkbox"]{
@@ -64,11 +95,9 @@ input [type="checkbox"]{
 
 
 .caixa{
-    display: block;
-    height: 40px;
     width: 240px;
+    height: 30px;
     margin: 10px;
-    border: 1px solid black;
     border: none;
 }
 
@@ -76,46 +105,7 @@ input [type=radio]{
     display: block;
     height: 30px;
     width: 30;
-    /*background-color: rgba(255, 255, 255,0.01);fundo do nome e password*/
     border: none;
-}
-
-.caixa-grande h1{
-    text-align: center;
-    margin-bottom:20px;
-    font-size: 22px;
-}
-
-.caixa-grande{
-    display: flex;
-    background-color: #fff;
-    width: 600px;
-    height: 400px;
-    border-radius: 5px;
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    box-shadow: 7px 7px 7px 6px rgba(0,0,0, .5);
-}
-
-.caixa-grande .esquerda{
-    width: 60%;
-}
-
-.caixa-grande .direita{
-    width: 50%;
-}
-
-.caixa-grande .direita img{
-    width: 300px;
-    height: 400px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.caixa-grande form{
-    margin-top: 80px;
 }
 
 a{
@@ -144,6 +134,84 @@ div.msg-erro{
     padding: 10px;
     background-color: rgba(250, 128, 114, .3);
     border: 1px solid rgb(165, 42, 42);
+}
 
+/*Cadastro*/
+
+.caixa-cadastro{
+    width: 400px;
+    margin-top: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.caixa-cadastro h1{
+    margin-bottom: 40px;
+    margin-top: 20px; 
+}
+
+.radio-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.radio-button label{
+    display: flex;
+    margin-left: 70px;
+}   
+
+.caixa-cadastro .button{
+    margin-top: 30px;
+}
+
+.caixa-cadastro fieldset{
+    border:2px solid #e34467;
+    padding: 30px;
+    margin: 0px 30px 20px 30px;
+    border-radius: 10px;
+}
+
+.caixa-cadastro fieldset legend{
+    text-align: left;
+    padding: 10px;
+}
+
+.caixa-cadastro 
+input[type="email"],
+.caixa-cadastro  
+input[type="password"],
+.caixa-cadastro 
+input[type="text"],
+.caixa-cadastro 
+input[type="date"]{
+    border-bottom:  2px solid #e34467;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+hr{
+ margin: 10px 10px 0px 10px;
+}
+
+.checkbox-interesse{
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.checkbox-interesse p{
+    color: #666;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 30px;
+    margin-bottom: 20px;
+
+}
+.checkbox-interesse input[type="checkbox"]{
 
 }
