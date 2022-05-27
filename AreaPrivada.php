@@ -79,13 +79,15 @@ $u = new Usuario("app","localhost","root","");
 
     <div class="conteudo">
 
-        <div class="perfil">
+        <div class="meu_perfil">
             <div class="fotos">
 
             </div>
 
             <div class="info">
+                <div class="primeiro_dado">
                 <h1>
+
                     <?php
                          $id_user = $_SESSION['id_usuario']; 
                          $dados = $u->buscaDados($id_user);
@@ -104,19 +106,25 @@ $u = new Usuario("app","localhost","root","");
                        $idade = $u->calculaData($id_user);
                                 foreach ($idade as $key => $value){
                                     
-                                        echo $value;
+                                        echo ", ".$value;
                                     
                                 }
                             
                     ?>
                 </h2>
-                <h4>"Cargo" na "Local"</h4>
-                <h4>Mora em/no "Lugar"</h4>
+            </div>
+                <h4>
+                    <ion-icon name="school-outline"></ion-icon>"Cargo" na "Local"
+                </h4>
+                <h4>
+                    <ion-icon name="briefcase-outline"></ion-icon>
+                Mora em/no "Lugar"
+                </h4>
             </div>
 
             <div class="bio">
                 <h3>Sobre mim</h3>
-                minha bio
+                <p>minha bio</p>  
             </div>
 
             <div class="interesses">

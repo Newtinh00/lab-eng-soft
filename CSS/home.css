@@ -105,7 +105,6 @@ body{
   margin-left: 5px;
 }
 
-
 .principal{
     display: flex;
 }
@@ -113,6 +112,59 @@ body{
 .conteudo{
   background-color: #f9f9f9;
   width:100%;
-  
 }
 
+.meu_perfil{
+  background-color: #fff;
+  border: 2px solid #dcdcdc;
+  width: 340px;
+  border-radius: 10px;
+  padding: 0 10px 20px 10px;
+  top:40px;
+  right: 100px;
+  position: relative;
+  float: right;
+}
+
+.meu_perfil h1{
+  font-size: 23px;
+  margin: 0px;
+  padding: 0px;
+  color: #ed2651;
+  margin-bottom: 5px;
+}
+
+.meu_perfil h2{
+  font-size: 23px;
+  margin: 0px;
+  padding: 0px;
+  color: #666;
+  font-weight: 100;
+}
+
+.meu_perfil h3{
+  color: #545353;
+  font-weight: 500;
+  margin: 15px 0px 5px 0px;
+  padding: 0px;
+}
+
+.meu_perfil h4{
+  color: #9c9c9c;
+  font-weight: 100;
+}
+
+.meu_perfil h4 ion-icon {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.meu_perfil p{
+  color: #9c9c9c;
+  font-weight: 100;
+  margin: 0px;
+}
+
+.meu_perfil .primeiro_dado{
+  display: flex;
+}
