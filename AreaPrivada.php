@@ -9,6 +9,7 @@ if(!isset($_SESSION['id_usuario']))
 require_once 'classes/usuarios.php';
 $u = new Usuario("app","localhost","root","");
 
+date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +19,7 @@ $u = new Usuario("app","localhost","root","");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "CSS/home.css">
+    <link rel="stylesheet" href = "CSS/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Home</title>
@@ -32,182 +34,106 @@ $u = new Usuario("app","localhost","root","");
         $('.carousel').carousel();
     </script>
 
-
 </head>
 <body>
 
 
     <div class="superior">
-         <div class="logo"></div>
-        <a href="index.php"> <ion-icon name="exit-outline"></ion-icon></a>
+        <ul>
+            <a href="meu_perfil.php"><li><ion-icon name="person-outline"></ion-icon></li></a>
+            <a href=""><li><ion-icon name="chatbubble-outline"></ion-icon></li></a>
+            <a href="AreaPrivada.php"><li><ion-icon class="active" name="home-outline"></ion-icon></li></a>
+            <a href=""><li><ion-icon name="filter-outline"></ion-icon></li></a>
+            <a href="settings.php"><li><ion-icon name="settings-outline"></ion-icon></li></a>
+        </ul>
     </div>
 
-    <div class="principal">
-        <div class="lateral">
-            <div class="user">
-                <div class="user_details">
-                    <img src="">
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                    <div class="user_info">
-
-                        <h3>
-                            <?php 
-
-                             $id_user = $_SESSION['id_usuario']; 
-                             $dados = $u->buscaDados($id_user);
-
-                            for ($i=0; $i<count($dados); $i++) { 
-                                foreach ($dados[$i] as $key => $value){
-                                    if($key == 'nome'){
-                                        echo $value;
-                                    }
-                                }
-                            }
-
-                            ?>
-                        </h3>
-
-                        <h4>Meu Perfil</h4>
-
-                    </div>  
-                </div>
-            </div>
-
-            <div class="options">
-                <ul>
-                    <a href=""><li><ion-icon name="heart-outline"></ion-icon><p>Home</p></li></a>
-
-                    <a href=""><li><ion-icon name="person-circle-outline"></ion-icon><p>Meu Perfil</p></li></a>
-
-                    <a href=""><li><ion-icon name="filter-outline"></ion-icon><p>Filtros</p></li></a>
-
-                    <a href=""><li><ion-icon name="settings-outline"></ion-icon><p>Configurações</p></li></a>
-
-                    <a href=""><li><ion-icon name="at-outline"></ion-icon><p>Sobre</p></li></a>
-                </ul>
-            </div>
-        </div>
-
-        <div class="conteudo">
-            <div class="meu_perfil">
-                <div class="foto">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                        <?php
-                             $id_user = $_SESSION['id_usuario']; 
-                             $imagens = $u->buscaImagem($id_user);
-
-                            for ($i=0; $i<count($imagens); $i++) { 
-                                foreach ($imagens[$i] as $key => $value){
-                                    if($key == 'foto'){
-                                        if($imagens[$i] == $imagens[0]){
-                        ?>
-                                            <div class="carousel-item active">
-                                                <img class="" width= "320px" height="400px" src="./imagem/<?php echo $value?>">
-                                            </div>
-                        <?php
-                                        }else if($imagens[$i] >= $imagens[1]){
-                        ?>
-                                             <div class="carousel-item">
-                                                <img class="" width= "320px" height="400px" src="./imagem/<?php echo $value?>">
-                                            </div>
-                        <?php
-                                       } 
-                                    }
-                                }
-                            }
-
-                        ?>
-                    </div>
-
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                        </a>
-                </div>
-            </div>
-
-
-        <div class="info">
-             <div class="primeiro_dado">
-                <h1 class="font-h1">
-                    <?php
-                         $id_user = $_SESSION['id_usuario']; 
-                         $dados = $u->buscaDados($id_user);
-
-                            for ($i=0; $i<count($dados); $i++) { 
-                                foreach ($dados[$i] as $key => $value){
-                                    if($key == 'nome'){
-                                        echo $value;
-                                    }
-                                }
-                            }
-                    ?>
-                </h1>
-                <h2 class="font-h2">
-                    <?php 
-                       $idade = $u->calculaData($id_user);
-                                foreach ($idade as $key => $value){
-                                    
-                                        echo ", ".$value;
-                                    
-                                }
-                            
-                    ?>
-                </h2>
-            </div>
-                <h4 class="font-h4">
-                    <ion-icon name="school-outline"></ion-icon>Escolaridade
-                </h4>
-                <h4 class="font-h4">
-                    <ion-icon name="briefcase-outline"></ion-icon>
-                   "Cargo" na "Local"
-                </h4>
-                <h4 class="font-h4">
-                    <ion-icon name="location-outline"></ion-icon> Local
-                </h4>
-            
-            <div class="bio">
-                <h3 class="font-h3">Sobre mim</h3>
-                <p>minha bio</p>  
-            </div>
-
-            <div class="interesses">
-                <h3 class="font-h3">Interesses</h3>
-                <p>
-            <?php 
-                $dados_interesses = $u->mostraInteresse($id_user);
-
-                for ($i=0; $i<count($dados_interesses); $i++) { 
-                    foreach ($dados_interesses[$i] as $key => $value){
-                        if($key == 'interesse'){
-                            echo $value." ";
-                        }
-                    }
-                }
-                    ?>
-                </p>
-         
-        </div>
-    </div>
     
+    <div class="conteudo">
 
+        <main>
+            <div class="profiles">
+                
+                <?php
+
+                    $cards = $u->cards();
+                    $id_user = $_SESSION['id_usuario'];
+
+                    for ($i=0; $i<count($cards); $i++) { 
+                 ?>
+                        <div class="profile">
+                    <?php
+                        foreach ($cards[$i] as $key => $value){
+                            //if($key == 'id_usuario' && $value != $id_user){
+
+                                if ($key == 'id_usuario' && $value != $id_user){
+                        ?>
+                                    <div class="profile__image" style="background-image: url('./imagem/leanbeef-soc-3.jpg');">
+                                    </div>
+                        <?php
+                                    /*$imagens = $u->buscaImagem($value);
+
+                                    for ($i=0; $i<count($imagens); $i++){ 
+                                        foreach ($imagens[$i] as $key => $value){
+
+                                            if($key == 'foto'){
+                                                if($imagens[$i] >= $imagens[0]){
+                        ?>                      
+                                                <img class="" width= "220px" height="300px" src="./imagem/<?php echo $value?>">
+                                                    
+                        <?php
+                                                }    
+                                            }
+                                        }
+                                    }*/
+                                }
+                   
+                                if ($key == 'nome') {
+                        ?>          <div class="profile__infos">          
+                                        <div class="profile__name"><?php echo $value.", "; ?>
+                        <?php
+                                }
+                                if($key == 'dt_nascimento'){
+                        ?> 
+                                        <span class="profile__age"><?php 
+
+                                            $dt_nascimento = date('Y-m-d', strtotime($value));
+                                            $date = date('Y-m-d');
+                                            $idade = date_diff(date_create($dt_nascimento), date_create($date));
+                                           echo $idade->format('%y');
+                                        ?></span>
+                                        </div>
+                    <?php
+                                }
+                            //}
+
+                        }
+                    ?>  
+                           
+
+                                        <div class="profile__description">Lindo</div>
+                                    </div>
+                        </div>
+                 <?php
+                    }
+
+                ?>
+
+            </div>
+
+            <div class="bottombar">
+              <div class="bottombar__button">
+                <img src="imagem/icon-next.svg">
+              </div>
+              <div class="bottombar__button">
+                <img src="imagem/icon-heart.svg">
+              </div>
+            </div>
+        </main>
     </div>
-    <?php 
-        $id = $_SESSION['id_usuario']; 
-    ?>
-    <form method="POST" action="index.php">
-       <button type="submit" value="<?php echo $id;?>" name="user_delete">Deletar Conta</button>
-    </form>
 
-
-    </div>
-
+    <script src='js/hammer.min.js'></script>
+    <script src='js/main.js'></script>
 </body>
 
 </html>

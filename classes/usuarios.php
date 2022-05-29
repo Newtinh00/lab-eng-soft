@@ -126,6 +126,16 @@ class Usuario{
         return $res;
     }
 
+    public function calculaData2($dt_nascimento){
+        $sql = $this->pdo->prepare("SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(), dt_nascimento)), '%Y') +0 AS Age from usuarios where dt_nascimento = :dt_n LIMIT 1");
+
+        $sql->bindValue(":dt_n", $dt_nascimento);
+        $sql->execute();
+
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function mostraInteresse($id){
 
         $sql = $this->pdo->prepare("SELECT usuarios.id_usuario,interesse FROM usuarios 
@@ -163,5 +173,24 @@ class Usuario{
         $sql->execute();
     }
 
+    public function cards(){
+        $res = array();
+        $sql = $this->pdo->query("SELECT * FROM usuarios");
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public function buscaImagemCard($id){
+        
+        $sql = $this->pdo->prepare("SELECT usuarios.id_usuario, foto FROM fotos INNER JOIN usuarios ON usuarios.id_usuario = fotos.id_usuario GROUP BY usuarios.id_usuario, foto HAVING id_usuario = :id");
+
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
 }
 ?>

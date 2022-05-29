@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION['id_usuario']))
 {
-    header("location: index.php");
+    header("location: AreaPrivada.php");
     exit;
 }
 require_once 'classes/usuarios.php';
@@ -13,8 +13,7 @@ date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,45 +36,30 @@ date_default_timezone_set('America/Sao_Paulo');
 
 </head>
 <body>
-	<main>
-	<div class="profiles">
-		<?php
-		    $cards = $u->cards();
-		    $teste = 13;
 
-            for ($i=0; $i<count($cards); $i++) {
-        ?>
-            	<div class="profile"> 
-        <?php
 
-                foreach ($cards[$i] as $key => $value){
+    <div class="superior">
+        <ul>
+            <a href="meu_perfil.php"><li><ion-icon name="person-outline"></ion-icon></li></a>
+            <a href=""><li><ion-icon name="chatbubble-outline"></ion-icon></li></a>
+            <a href="AreaPrivada.php"><li><ion-icon name="home-outline"></ion-icon></li></a>
+            <a href=""><li><ion-icon name="filter-outline"></ion-icon></li></a>
+            <a href="settings.php"><li><ion-icon class="active" name="settings-outline"></ion-icon></li></a>
+        </ul>
+    </div>
 
-                	$imagens = $u->buscaImagemCard($teste);
-
-                			foreach ($imagens[$i] as $key => $value){
-								
-							}
-						}
-                       //for ($i=0; $i<count($imagens); $i++){ 
-                          // foreach ($imagens[$i] as $k => $v){
-                              // if($k == 'foto'){
-                                	
-                                ?>
-                             <?php   	 
-                                //}
-                          // }
-                        //}
-                    //}
-                
-        ?>
-            	</div> 
-        <?php
-            }
+            <?php 
+                $id = $_SESSION['id_usuario']; 
             ?>
-	         	
-	</div>
-</main>
-<script src='js/hammer.min.js'></script>
-  <script src='js/main.js'></script>
+
+    <div class="conteudo">
+        <main>
+            <div class="config">
+                <form class="" method="POST" action="index.php">
+                    <button type="submit" id="deletar" class="bnt" value="<?php echo $id;?>" name="user_delete">Deletar Conta</button>
+            </form>
+            </div> 
+        </main>  
+    </div>
 </body>
 </html>

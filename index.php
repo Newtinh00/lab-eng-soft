@@ -6,7 +6,7 @@ $u = new Usuario("app","localhost","root","");
 <html lang="pt-br">
 <head>
     <meta charset="utf-8"/>
-    <title>Projeto Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href ="CSS/estilo.css">
 </head>
 <body>

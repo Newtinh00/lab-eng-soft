@@ -1,3 +1,7 @@
+html{
+   background-color: #f9f9f9;
+}
+
 body{
   padding: 0px;
   margin: 0px;
@@ -6,103 +10,52 @@ body{
   background-color: #f9f9f9;
 }
 
+a{
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 /*Barra Superior*/
 .superior{
-  background: #e34467;
-  padding: 5px;
   width: 100%;
-  height: 35px;
+  background-color: #f9f9f9;
+  margin-top: 0px;
+}
+
+.superior ul{
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+  margin-top: 30px;
+  padding: 0px;
+}
+
+.superior ul li{
+  padding: 0px;
+}
+
+.superior a{
+  list-style: none;
+  margin: 0 auto;
+  color:  transparent;
 }
 
 .superior ion-icon{
-  color: white;
   font-size: 30px;
-  float: right;
-  margin-right: 20px;
-  position: relative;
+  color:  #666;
 }
+
+.superior .active{
+  color: #ed2651;
+}
+
 
 .superior ion-icon:hover{
-  color: black;
-  transition: .5s;
-}
-
-/*Menu Lateral*/
-.lateral{
-  width: 219px;
-  min-height: 590px;
-  top: 36px;
-  background-color: #e34467;
-  color: #fff;
-}
-
-.lateral h3,h4{
-  margin: 0px;
-  padding: 0px;
-}
-
-.lateral .user{
-  width: 100%;
-  height: 80px;
-  border-bottom: 2px solid #ed2651;
-  
-}
-.lateral .user ion-icon{
-  font-size: 60px;
-}
-
-.lateral .user .user_details{
-  display: flex;
-  padding: 5px 0px 5px 5px;
-}
-
-.lateral .user .user_info{
-  margin-top: 13px;
-  margin-left: 3px;
-}
-/*superior, direita, inferior e esquerda*/
-
-.lateral .user .user_info h3{
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.lateral .user .user_info h4{
-  font-size: 13px;
-  font-weight: 300;
-  margin-top: -2px;
-}
-
-.lateral .options ul{
-  list-style: none;
-  padding: 0px;
-}
-
-.lateral .options ul li{
-  color: #fff;
-  display: flex;
-  padding-left: 15px;
-}
-
-.lateral .options ul a:hover li{
-  border-left: 3px solid #fff;
-}
-
-.lateral .options a{
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.lateral .options ion-icon{
-  font-size: 28px;
-  color: #fff;
-  margin-top: 5px;
-}
-
-.lateral .options p{
-  margin-top: 9px;
-  margin-left: 5px;
+  color: #ed2651;
 }
 
 .principal{
@@ -114,15 +67,25 @@ body{
   width:100%;
 }
 
+.conteudo main {
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding-top: 15px;
+}
+
+.conteudo a{
+  text-align: center;
+}
+
+
 .meu_perfil{
-  background-color: #fff;
+  scrollbar-width: none;
   border: 2px solid #dcdcdc;
-  width: 320px;
-  border-radius: 10px;
-  top:20px;
-  right: 100px;
-  position: relative;
-  float: right;
+  width: 300px;
+  height: 450px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  overflow-y: scroll;
 }
 
 .meu_perfil .info{
@@ -177,20 +140,85 @@ body{
   color: #9c9c9c;
   font-weight: 100;
   margin: 0px;
+
 }
 
 .meu_perfil .primeiro_dado{
   display: flex;
+  margin-top: -5px;
+  margin-bottom: 5px;
 }
+
 .meu_perfil .fotos{
-  width: 320px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  width: 300px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 .meu_perfil .fotos img{
   width: 100%;
   height: 400px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+
+.bnt{
+  width: 120px;
+  height: 40px;
+  background-color: #ed2651;
+  text-align: center;
+  font-size: 15px;
+  border:  0px;
+  border-radius: 5px ;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+#sair{
+  padding: 10px 14px 10px 14px;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 30px;
+  left: 31%;
+  position: relative;
+}
+#deletar{
+   background-color: transparent;  
+   color: #ed2651;  
+}
+
+#sair:hover{
+  background-color: #fff;
+  color: #ed2651;
+  width: 118px;
+  height: 38px;
+  border: 1px solid #ed2651;
+  transition: .1s;
+}
+
+#deletar:hover{
+text-decoration: underline;
+}
+
+.config form{
+  text-align: center;
+}
+
+.btn-circle{
+  background-color: #ed2651;
+  color: #fff;
+  border: 0px;
+  font-size: 25px;
+  border-radius: 50%;
+  width: 50px;
+  height: 55px;
+}
+
+.meu_perfil .btn-circle{
+  float: right;
+  margin-top:-65px ;
+  margin-right: 5px;
 }
