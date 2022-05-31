@@ -10,6 +10,21 @@
 }
 
 
+#myImage {
+-moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+-moz-user-drag: none;
+-khtml-user-drag: none;
+-webkit-user-drag: none;
+user-drag: none;
+}
+
+.profiles img {
+  pointer-events: none
+}
+
 main {
   width: 300px;
   max-width: 90%;
@@ -57,8 +72,6 @@ main img{
 .profile__image {
   height: 0;
   padding-bottom:150%;
-  background-size: cover;
-  background-position: center center;
 }
 
 .profile__infos {
@@ -124,7 +137,7 @@ main img{
 }
 
 .profile--matching::after, .profile--nexting::after {
-  content:'MATCH';
+  content:'Like';
   font-weight: bold;
   font-size:28px;
   padding:8px 12px;
@@ -139,7 +152,7 @@ main img{
 } 
 
 .profile--nexting::after {
-  content:'NEXT';
+  content:'Não';
   border:solid 2px var(--red);
   color:var(--red);
 }

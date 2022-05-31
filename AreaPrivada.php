@@ -18,22 +18,32 @@ date_default_timezone_set('America/Sao_Paulo');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "CSS/home.css">
-    <link rel="stylesheet" href = "CSS/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href = "CSS/home.css"> <!-- Home -->
+    <link rel="stylesheet" href = "CSS/style.css"> <!-- Hammer.js -->
+    <link rel="stylesheet" type="text/css" href="CSS/slick.css"> <!-- Slick.js -->
+    <link rel="stylesheet" type="text/css" href="CSS/slick-theme.css"><!-- Slick.js -->
 
     <title>Home</title>
 
+    <!-- Ionic Icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Fim Ionic Icons -->
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- FIm Bootstrap -->
+
+    <!-- Hammer.js -->
     <script type="text/javascript">
         $('.carousel').carousel();
     </script>
-
+    <!-- Fim Hammer.js -->
 </head>
 <body>
 
@@ -53,40 +63,51 @@ date_default_timezone_set('America/Sao_Paulo');
 
         <main>
             <div class="profiles">
-                
                 <?php
-
-                    $cards = $u->cards();
                     $id_user = $_SESSION['id_usuario'];
+                    $cards = $u->cards($id_user);
+                    
 
                     for ($i=0; $i<count($cards); $i++) { 
                  ?>
                         <div class="profile">
+
+                            <div class="profile__image">             
+                            <?php
+
+                            foreach ($cards[$i] as $key => $value){
+                                if($value != $id_user){
+                                $imagens = $u->buscaImagemCard($value);
+                            ?>
+                                <ul class="slider">
+                                <?php
+                                foreach ($imagens as $v){
+                                ?>
+                                    <li>
+                                        <?php
+                                        foreach ($v as $k => $value ){
+                                            if ($value != null ) {
+                                        ?>
+                                                <img  width= "300px" height="450px" src="imagem/<?php echo $value;?>" >
+                                        <?php      
+                                            }
+          
+                                        }
+                                        ?>
+                                    </li>
+        <?php
+                        
+                                 }
+
+                                }
+                            }
+          ?>
+                                </ul>                
+                            </div>
+
                     <?php
                         foreach ($cards[$i] as $key => $value){
                             //if($key == 'id_usuario' && $value != $id_user){
-
-                                if ($key == 'id_usuario' && $value != $id_user){
-                        ?>
-                                    <div class="profile__image" style="background-image: url('./imagem/leanbeef-soc-3.jpg');">
-                                    </div>
-                        <?php
-                                    /*$imagens = $u->buscaImagem($value);
-
-                                    for ($i=0; $i<count($imagens); $i++){ 
-                                        foreach ($imagens[$i] as $key => $value){
-
-                                            if($key == 'foto'){
-                                                if($imagens[$i] >= $imagens[0]){
-                        ?>                      
-                                                <img class="" width= "220px" height="300px" src="./imagem/<?php echo $value?>">
-                                                    
-                        <?php
-                                                }    
-                                            }
-                                        }
-                                    }*/
-                                }
                    
                                 if ($key == 'nome') {
                         ?>          <div class="profile__infos">          
@@ -116,9 +137,7 @@ date_default_timezone_set('America/Sao_Paulo');
                         </div>
                  <?php
                     }
-
                 ?>
-
             </div>
 
             <div class="bottombar">
@@ -134,8 +153,28 @@ date_default_timezone_set('America/Sao_Paulo');
 
     <script src='js/hammer.min.js'></script>
     <script src='js/main.js'></script>
-</body>
 
+    <!-- Bloquear o drag da imagem -->
+    <script type="text/javascript">
+        const img = document.querySelector('img')
+        img.ondragstart = () => {
+          return false;
+        };
+    </script>
+    <!-- Fim Bloquear o drag da imagem -->
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Fim Jquery -->
+
+    <!-- Slick.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript">
+        $('.slider').slick();       
+    </script>
+    <!-- Fim Slick.js -->
+</body>
 </html>
 
 

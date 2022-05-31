@@ -173,9 +173,13 @@ class Usuario{
         $sql->execute();
     }
 
-    public function cards(){
+    public function cards($id){
         $res = array();
-        $sql = $this->pdo->query("SELECT * FROM usuarios");
+        $sql = $this->pdo->prepare("SELECT * FROM usuarios WHERE id_usuario !=:id");
+       
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
         $res = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $res;
@@ -183,7 +187,7 @@ class Usuario{
 
     public function buscaImagemCard($id){
         
-        $sql = $this->pdo->prepare("SELECT usuarios.id_usuario, foto FROM fotos INNER JOIN usuarios ON usuarios.id_usuario = fotos.id_usuario GROUP BY usuarios.id_usuario, foto HAVING id_usuario = :id");
+        $sql = $this->pdo->prepare("SELECT foto FROM fotos INNER JOIN usuarios ON usuarios.id_usuario = fotos.id_usuario GROUP BY usuarios.id_usuario, foto HAVING id_usuario = :id");
 
         $sql->bindValue(":id", $id);
         $sql->execute();
