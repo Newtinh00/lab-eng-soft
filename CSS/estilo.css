@@ -261,3 +261,10 @@ hr{
   background-color:green;
   outline: none;
 }
+
+#btn-voltar{
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #ed2651;
+}

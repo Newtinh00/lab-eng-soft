@@ -59,7 +59,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
             <li class="active"><a id="btn_option" href="home.php""><ion-icon class="active" name="home"></ion-icon></a></li>
 
-            <li><a id="btn_option" href=""><ion-icon name="filter"></ion-icon><</a></li>
+            <li><a id="btn_option" href=""><ion-icon name="filter"></ion-icon> </a></li>
 
             <li><a id="btn_option" href="javascript::" onclick="load_page('settings.php')"><ion-icon name="settings"></ion-icon></a></li>
         </ul>
@@ -139,12 +139,16 @@ date_default_timezone_set('America/Sao_Paulo');
                     ?>  
                            
 
-                                        <div class="profile__description">Lindo</div>
+                                        <div class="profile__description">
+    
+                                        
+                                        </div>
                                     </div>
                         </div>
                  <?php
                     }
                 ?>
+
             </div>
 
             <div class="bottombar">

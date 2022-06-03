@@ -32,6 +32,20 @@ date_default_timezone_set('America/Sao_Paulo');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
+    <script type="text/javascript">
+        function mostrarDiv(){
+            document.getElementById("msg-sucesso").style.opacity="1";
+        }
+        setTimeout("mostrarDiv()",0);
+
+        function escondeDiv(){
+            document.getElementById("msg-sucesso").style.opacity="0";
+            document.getElementById("msg-sucesso").style.transition="visibility 0s 2s, opacity 2s linear";
+        }
+        setTimeout("escondeDiv()",4000);
+    </script>
+
+
 
     <script type="text/javascript">
         $('.carousel').carousel();
@@ -44,14 +58,25 @@ date_default_timezone_set('America/Sao_Paulo');
     $id = $_SESSION['id_usuario']; 
     $res = $u->buscarDadosEdicao($id);
 ?>
+    <div class="superior">
+        <ul>
+            <li><a id="btn_option" href="javascript::" onclick="load_page('meu_perfil.php')"><ion-icon name="person"></ion-icon></a>
+            </li>
 
-    
+            <li><a id="btn_option" href="javascript::" onclick="load_page()"><ion-icon name="chatbubble"></ion-icon></a></li>
+
+            <li class="active"><a id="btn_option" href="home.php""><ion-icon class="active" name="home"></ion-icon></a></li>
+
+            <li><a id="btn_option" href=""><ion-icon name="filter"></ion-icon><</a></li>
+
+            <li><a id="btn_option" href="javascript::" onclick="load_page('settings.php')"><ion-icon name="settings"></ion-icon></a></li>
+        </ul>
+    </div>
 
     <div id="conteudo" class="conteudo">
-
         <main>
             <div class="meu_perfil">
-                <div class="foto">
+                                <div class="foto">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                         <?php
@@ -93,8 +118,6 @@ date_default_timezone_set('America/Sao_Paulo');
 
                     </div>
                 </div>
-
-
                 <div class="info">
                     <div class="primeiro_dado">
                         <h1 class="font-h1">
@@ -121,82 +144,73 @@ date_default_timezone_set('America/Sao_Paulo');
                             ?>
                         </h2>
                     </div>
-                        <h4 class="font-h4">
-                            <ion-icon name="school-outline"></ion-icon>
-                             <?php
-                                 $id_user = $_SESSION['id_usuario']; 
-                                 $dados = $u->buscaDados($id_user);
 
-                                    for ($i=0; $i<count($dados); $i++) { 
-                                        foreach ($dados[$i] as $key => $value){
-                                            if($key == 'escolaridade'){
-                                                echo $value;
-                                            }
-                                        }
-                                    }
-                            ?>
-                        </h4>
-                        <h4 class="font-h4">
-                            <ion-icon name="briefcase-outline"></ion-icon>
-                            <?php
-                                 $id_user = $_SESSION['id_usuario']; 
-                                 $dados = $u->buscaDados($id_user);
+                    <form method="POST">
+<!--
+-->
 
-                                    for ($i=0; $i<count($dados); $i++) { 
-                                        foreach ($dados[$i] as $key => $value){
-                                            if($key == 'cargo'){
-                                                echo $value;
-                                            }
-                                        }
-                                    }
-                            ?> na
+                        <label for="local">Escolaridade
+                            <br>  
+                            <input name="local" type="text"  id="local" value="<?php if(isset($res)){echo $res['escolaridade'];}?>">
+                        </label>
 
-                             <?php
-                                 $id_user = $_SESSION['id_usuario']; 
-                                 $dados = $u->buscaDados($id_user);
+                        <label for="academica">
+                            Mora em:
+                            <br>  
+                            <input name="escolaridade" type="text"  id="escolaridade" value="<?php if(isset($res)){echo $res['local'];}?>">
+                        </label>
 
-                                    for ($i=0; $i<count($dados); $i++) { 
-                                        foreach ($dados[$i] as $key => $value){
-                                            if($key == 'local_trabalho'){
-                                                echo $value;
-                                            }
-                                        }
-                                    }
-                            ?>
-                        </h4>
-                        <h4 class="font-h4">
-                            <ion-icon name="location-outline"></ion-icon> 
-                             <?php
-                                 $id_user = $_SESSION['id_usuario']; 
-                                 $dados = $u->buscaDados($id_user);
 
-                                    for ($i=0; $i<count($dados); $i++) { 
-                                        foreach ($dados[$i] as $key => $value){
-                                            if($key == 'local'){
-                                                echo $value;
-                                            }
-                                        }
-                                    }
-                            ?>
-                        </h4>
-                    
-                    <div class="bio">
-                        <h3 class="font-h3">Sobre mim</h3>
-                        <p> <?php
-                                 $id_user = $_SESSION['id_usuario']; 
-                                 $dados = $u->buscaDados($id_user);
+                        <label for="cargo">Cargo
+                            <br>  
+                            <input type="text" name="cargo" id="cargo" value="<?php if(isset($res)){echo $res['cargo'];}?>">
+                        </label>
 
-                                    for ($i=0; $i<count($dados); $i++) { 
-                                        foreach ($dados[$i] as $key => $value){
-                                            if($key == 'bio'){
-                                                echo $value;
-                                            }
-                                        }
-                                    }
-                            ?></p>  
-                    </div>
+                        <label for="empresa">Empresa
+                            <br>  
+                            <input type="text" name="empresa" id="empresa" value="<?php if(isset($res)){echo $res['local_trabalho'];}?>">
+                        </label>
 
-                    <div class="interesses">
+<!--                       <label for="local">Local
+                            <br>
+                            <select>
+                                <option value="ac">Acre</option>
+                                <option value="al">Alagoas</option>
+                                <option value="ap">Amapá</option>
+                                <option value="am">Amazonas</option>
+                                <option value="ba">Bahia</option>
+                                <option value="ce">Ceará</option>
+                                <option value="es">Espírito Santo</option>
+                                <option value="go">Goiás</option>
+                                <option value="ma">Maranhão</option>
+                                <option value="mt">Mato Grosso</option>
+                                <option value="ms">Mato Grosso do Sul</option>
+                                <option value="mg">Minas Gerais</option>
+                                <option value="pa">Pará</option>
+                                <option value="pb">Paraíba</option>
+                                <option value="pr">Paraná</option>
+                                <option value="pe">Pernambuco</option>
+                                <option value="pi">Piauí</option>
+                                <option value="rj">Rio de Janeiro</option>
+                                <option value="rn">Rio Grande do Norte</option>
+                                <option value="rs">Rio Grande do Sul</option>
+                                <option value="ro">Rondônia</option>
+                                <option value="rr">Roraima</option>
+                                <option value="sc">Santa Catarina</option>
+                                <option value="sp">São Paulo</option>
+                                <option value="se">Sergipe</option>
+                                <option value="to">Tocantins</option>
+                                <option value="df">Distrito Federal</option>
+                            </select>
+                        </label>
+-->     
+                        <label for="bio">Sobre Mim
+                            <br>
+                            <textarea maxlength="500" id="bio" name="bio"><?php if(isset($res)){echo $res['bio'];}?>
+                            </textarea>
+                        </label>
+
+                        <div class="interesses">
                         <h3 class="font-h3">Interesses</h3>
                         <p>
                     <?php 
@@ -212,30 +226,41 @@ date_default_timezone_set('America/Sao_Paulo');
                             ?>
                         </p>
                     </div>
+                        <input type="submit" class="editar" name="editar" value="Salvar">
+                    </form>
+
                 </div>
-
-                <a class="btn-circle" href="editarUsuario.php">
-                    <ion-icon name="create-outline"></ion-icon>
-
-                </a>
             </div>
-
-            <?php 
-                $id = $_SESSION['id_usuario']; 
-            ?>
-
-        <form method="get" action="index.php" onsubmit="return sweetalertclick(this);">
-                <input id="sair" class="bnt" type="submit" value="Sair do perfil">
-            </form>
-
         </main>
     </div>
 
     <?php 
-    
+
+    if(isset($_POST['editar']) && isset($_POST['empresa'])) {
+
+        $local_trabalho = addslashes($_POST['empresa']);
+        $mora = addslashes($_POST['local']);
+        $academica = addslashes($_POST['escolaridade']);
+        $cargo = addslashes($_POST['cargo']);
+        $bio = $_POST['bio'];
+
+        $id = $_SESSION['id_usuario']; 
+
+        //if(empty($local_trabalho) || empty($cargo) || empty($bio) ){
+
+            $u->editarUsuario($id, $local_trabalho, $bio, $cargo, $mora, $academica);
+            ?>
+                <div id="msg-sucesso" class="sucesso"> 
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                        Alterado com sucesso!
+                </div>
+            <?php
+        //}
+
+    }
+
     ?>
 
-   
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -286,6 +311,5 @@ date_default_timezone_set('America/Sao_Paulo');
         })
     </script>
     <!-- Fim classe active dos botões do menu superior--> 
-
 </body>
 </html>

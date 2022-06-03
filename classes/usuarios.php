@@ -196,5 +196,33 @@ class Usuario{
 
         return $res;
     }
+
+    public function buscarDadosEdicao($id){
+        $sql = $this->pdo->prepare("SELECT * FROM usuarios WHERE id_usuario = :id");
+       
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+
+        return $res;
+
+    }
+
+    public function editarUsuario($id, $local_trabalho, $bio, $cargo, $academica, $mora){
+
+        $sql = $this->pdo->prepare("UPDATE usuarios SET local = :l, escolaridade = :a, cargo = :c, local_trabalho = :l_t, bio = :bio WHERE id_usuario =  :id");
+
+        $sql->bindValue(":id", $id);
+        $sql->bindValue(":a", $academica);
+        $sql->bindValue(":c", $cargo);
+        $sql->bindValue(":l_t", $local_trabalho);
+        $sql->bindValue(":l", $mora);
+        $sql->bindValue(":bio", $bio);
+
+        $sql->execute();
+
+        return true;
+    }
 }
 ?>

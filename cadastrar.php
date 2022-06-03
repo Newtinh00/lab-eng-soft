@@ -114,6 +114,8 @@
 
                 </div>
                     <input type="submit" id="submit" class="button" name="save" value="Cadastrar">
+
+                    <a href="index.php" id="btn-voltar">Voltar</a> 
                     
                 </form>
             </div>
@@ -132,19 +134,18 @@
             $email= addslashes($_POST['email']);
             $senha= addslashes($_POST['senha']);
             $confirmarSenha= addslashes($_POST['confsenha']);
-            
-            $genero = addslashes($_POST['genero']);
-           
             $dt_nascimento = addslashes($_POST['dt_nascimento']);
 
-            $interesses =  $_POST['interesses'];
-
-            $date = date('Y-m-d');
+            
+            $date = date('Y-m-d'); 
             $idade = date_diff(date_create($dt_nascimento), date_create($date));
 
             //verificar se esta preenchido
-            if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha) && !empty($genero) && !empty($dt_nascimento)){
-             
+            if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha) && !empty($dt_nascimento)){
+
+                    $genero = $_POST['genero'];
+                    $interesses =  $_POST['interesses'];
+
                 if($u->msgErro == ""){ //se esta tudo ok 
 
                     if($senha == $confirmarSenha){

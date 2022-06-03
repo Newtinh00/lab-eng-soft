@@ -228,5 +228,61 @@ text-decoration: underline;
   float: right;
   margin-top:-65px ;
   margin-right: 5px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.meu_perfil .btn-circle:hover{
+color: #fff;
+}
+
+.sucesso{
+    width: 350px;
+    z-index: 1;
+    padding: 20px;
+    background-color: #28a745;
+    border: 1px solid rgb(255, 255, 255);
+    position: fixed;
+    bottom: 15px;
+    color: rgb(2555,255,255);
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 15px;
+    right: 10px;
+    height: 20px;
+    padding-left: 40px;
+}
+
+
+.sucesso ion-icon{
+    font-size: 25px;
+    position: absolute;
+    left: 10px;
+    top: 26%;
+
+}
+
+.editar{
+    width: 200px;
+    height: 32px;
+    background-color: #ed2651;
+    text-align: center;
+    font-size: 15px;
+    border: 0px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-left: 30px;
+}
+
+.editar:hover{
+  background-color: #fff;
+  color: #ed2651;
+  border: 1px solid #ed2651;
+  transition: .1s;
 }
 
