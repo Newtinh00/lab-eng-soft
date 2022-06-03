@@ -124,21 +124,57 @@ a:hover{
 
 }
 
-div#msg-sucesso{
-    width: 400px;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: rgba(50, 205, 50, .3);
-    border: 1px solid rgb(34, 139, 34);
+.msg-sucesso{
+    width: 350px;
+    z-index: 1;
+    padding: 20px;
+    background-color: #28a745;
+    border: 1px solid rgb(255, 255, 255);
+    position: fixed;
+    bottom: 15px;
+    color: rgb(2555,255,255);
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 15px;
+    right: 10px;
+    height: 20px;
+    padding-left: 40px;
+}
+
+.msg-sucesso ion-icon{
+    font-size: 25px;
+    position: absolute;
+    left: 10px;
+    top: 26%;
 
 }
-div.msg-erro{
-    width: 400px;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: rgba(250, 128, 114, .3);
-    border: 1px solid rgb(165, 42, 42);
+
+.msg-erro ion-icon{
+   font-size: 25px;
+    position: absolute;
+    left: 10px;
+    top: 26%;
+
 }
+
+.msg-erro {
+    width: 350px;
+    z-index: 1;
+    padding: 20px;
+    background-color: #eb5c6c;
+    border: 1px solid rgb(255, 255, 255);
+    position: fixed;
+    bottom: 15px;
+    color: rgb(2555,255,255);
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 15px;
+    right: 10px;
+    height: 20px;
+    padding-left: 40px;
+    opacity: 0;
+}
+
 
 /*Cadastro*/
 
@@ -219,4 +255,9 @@ hr{
 }
 .checkbox-interesse input[type="checkbox"]{
 
+}
+
+.btn.active{
+  background-color:green;
+  outline: none;
 }

@@ -26,32 +26,38 @@ a{
   margin-top: 0px;
 }
 
-.superior ul{
-  display: flex;
-  margin: 0 auto;
-  text-align: center;
-  width: 300px;
-  margin-top: 30px;
-  padding: 0px;
+.superior ul {
+    display: flex;
+    margin: 0 auto;
+    /* text-align: center; */
+    width: 300px;
+    margin-top: 30px;
+    padding: 0px;
+    align-content: space-between;
 }
 
-.superior ul li{
-  padding: 0px;
+.superior ul li {
+    padding: 0px;
+    list-style: none;
+    /* align-content: space-between; */
+    padding: 0 15px 0 15px;
 }
 
-.superior a{
-  list-style: none;
-  margin: 0 auto;
-  color:  transparent;
+.superior a {
+    /* list-style: none; */
+    /* margin: 0 auto; */
+    color: transparent;
+    align-content: space-between;
+} 
+
+.superior ul li.active ion-icon{
+  color: #ed2651;
 }
+
 
 .superior ion-icon{
   font-size: 30px;
-  color:  #666;
-}
-
-.superior .active{
-  color: #ed2651;
+  color:  #bfbfbf;
 }
 
 
@@ -182,7 +188,7 @@ a{
   padding: 10px 14px 10px 14px;
   color: #fff;
   text-decoration: none;
-  margin-top: 30px;
+  margin-top: -30px;
   left: 31%;
   position: relative;
 }

@@ -20,6 +20,7 @@ date_default_timezone_set('America/Sao_Paulo');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "CSS/home.css">
     <link rel="stylesheet" href = "CSS/style.css">
+    <link rel="stylesheet" href = "CSS/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Home</title>
@@ -38,16 +39,6 @@ date_default_timezone_set('America/Sao_Paulo');
 <body>
 
 
-    <div class="superior">
-        <ul>
-            <a href="meu_perfil.php"><li><ion-icon name="person-outline"></ion-icon></li></a>
-            <a href=""><li><ion-icon name="chatbubble-outline"></ion-icon></li></a>
-            <a href="AreaPrivada.php"><li><ion-icon name="home-outline"></ion-icon></li></a>
-            <a href=""><li><ion-icon name="filter-outline"></ion-icon></li></a>
-            <a href="settings.php"><li><ion-icon class="active" name="settings-outline"></ion-icon></li></a>
-        </ul>
-    </div>
-
             <?php 
                 $id = $_SESSION['id_usuario']; 
             ?>
@@ -56,10 +47,62 @@ date_default_timezone_set('America/Sao_Paulo');
         <main>
             <div class="config">
                 <form class="" method="POST" action="index.php">
+
                     <button type="submit" id="deletar" class="bnt" value="<?php echo $id;?>" name="user_delete">Deletar Conta</button>
-            </form>
+
+                </form>
             </div> 
         </main>  
     </div>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Fim Jquery -->
+
+    <script type="text/javascript">
+        function load_page(arquivo){
+            if(arquivo){
+
+                $.ajax({
+                    type: 'GET',
+                    data: arquivo,
+                    url: arquivo,
+                    success: function(data){
+                        $("#conteudo").html(data);
+                    }
+                });
+            }
+        }
+    </script>
+
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+
+     <script>
+        function deletarConta(form){
+            Swal.fire({
+              title: 'Tem certeza que deseja deletar sua conta?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Deletar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+               form.submit();
+              }
+            });
+            return false;
+        }
+
+    </script>
+
+        <!-- classe active dos botões do menu superior-->
+    <script type="text/javascript">
+        $(document).on('click', 'ul li', function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+    <!-- Fim classe active dos botões do menu superior--> 
 </body>
 </html>

@@ -20,9 +20,11 @@ date_default_timezone_set('America/Sao_Paulo');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "CSS/home.css"> <!-- Home -->
     <link rel="stylesheet" href = "CSS/style.css"> <!-- Hammer.js -->
-    <link rel="stylesheet" href = "CSS/sweetalert2.min.css">
+        <link rel="stylesheet" href = "CSS/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="CSS/slick.css"> <!-- Slick.js -->
     <link rel="stylesheet" type="text/css" href="CSS/slick-theme.css"><!-- Slick.js -->
+
+    <script src="js/sweetalert2.min.js"></script>
 
     <title>Home</title>
 
@@ -31,10 +33,6 @@ date_default_timezone_set('America/Sao_Paulo');
 
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- Fim Ionic Icons -->
-
-    <!-- Sweet Alert -->
-    <script src="js/sweetalert2.min.js"></script>
-    <!-- Fim Sweet Alert -->
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -52,7 +50,6 @@ date_default_timezone_set('America/Sao_Paulo');
 </head>
 <body>
 
-
     <div class="superior">
         <ul>
             <li><a id="btn_option" href="javascript::" onclick="load_page('meu_perfil.php')"><ion-icon name="person"></ion-icon></a>
@@ -68,8 +65,10 @@ date_default_timezone_set('America/Sao_Paulo');
         </ul>
     </div>
 
+
     <div id="conteudo" class="conteudo">
         <main>
+
             <div class="profiles">
                 <?php
                     $id_user = $_SESSION['id_usuario'];
@@ -159,8 +158,6 @@ date_default_timezone_set('America/Sao_Paulo');
         </main>
     </div>
 
-    <script src='js/hammer.min.js'></script>
-    <script src='js/main.js'></script>
 
     <!-- Bloquear o drag da imagem -->
     <script type="text/javascript">
@@ -176,18 +173,14 @@ date_default_timezone_set('America/Sao_Paulo');
     <!-- Fim Jquery -->
 
     <!-- Slick.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/slick.min.js"></script>
 
     <script type="text/javascript">
         $('.slider').slick();       
     </script>
     <!-- Fim Slick.js -->
 
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Fim Jquery -->
-
-        <!-- Ajax Sem refresh -->
+    <!-- Ajax Sem refresh -->
     <script type="text/javascript">
         function load_page(arquivo){
             if(arquivo){
@@ -212,8 +205,13 @@ date_default_timezone_set('America/Sao_Paulo');
         })
     </script>
     <!-- Fim classe active dos botões do menu superior--> 
+
+    <script src='js/hammer.min.js'></script>
+    <script src='js/main.js'></script>
     <script src="js/sweetalert2.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
-
 </body>
 </html>
+
+
+

@@ -8,9 +8,32 @@ $u = new Usuario("app","localhost","root","");
     <meta charset="utf-8"/>
     <title>Login</title>
     <link rel="stylesheet" href ="CSS/estilo.css">
+
+        <!-- Ionic Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Fim Ionic Icons -->
+
+
+    <script type="text/javascript">
+        function mostrarDiv(){
+            document.getElementById("msg-erro").style.opacity="1";
+        }
+        setTimeout("mostrarDiv()",0);
+
+        function escondeDiv(){
+            document.getElementById("msg-erro").style.opacity="0";
+            document.getElementById("msg-erro").style.transition="visibility 0s 2s, opacity 2s linear";
+        }
+        setTimeout("escondeDiv()",4000);
+
+    </script>
+
 </head>
 <body>
 
+<div class="conteudo">
     <div class="login">
         <div class="esquerda">
             <form method="POST">
@@ -26,6 +49,8 @@ $u = new Usuario("app","localhost","root","");
             <img src="imagem/date.jpg">
         </div>
     </div>
+</div>
+
     <!-- <label for="checkbox" class="toggler">
         <input type="checkbox" id="checkbox">
         <span class="ball"></span>
@@ -38,7 +63,9 @@ $u = new Usuario("app","localhost","root","");
     {
         $email= addslashes($_POST['email']);
         $senha= addslashes($_POST['senha']);
+
         //verificar se esta preenchido
+
         if(!empty($email) && !empty($senha) )
         {
             if($u->msgErro =="")
@@ -52,29 +79,31 @@ $u = new Usuario("app","localhost","root","");
                 else
                 {
                     ?>
-                    <div class="msg-erro">
+                    <div id="msg-erro" class="msg-erro">
+                        <ion-icon name="alert-circle"></ion-icon>
                         Email e/ou senha incorretos!
+
+                    </div>
                     <?php
-
                 }
-
             }
             else 
             {
                 ?>
-                    <div class="msg-erro">
+                    <div id="msg-erro" class="msg-erro">
+                        <ion-icon name="alert-circle"></ion-icon>
                         Preencha todos os campos!
+                    </div>
                     <?php
             }
 
-        }else
-        {
-            ?>
-                    <div class="msg-erro">
-                        <?php echo "Erro: ".$u->msgErro; ?>
+        }else{
+                ?>
+                    <div id="msg-erro" class="msg-erro">
+                       <ion-icon name="alert-circle"></ion-icon>
+                        Preencha todos os campos!
                     </div>
-                    <?php
-
+                <?php
         }
     }
     ?>
@@ -87,6 +116,13 @@ $u = new Usuario("app","localhost","root","");
             header("location: sair.php");
         }
     ?>
+
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Fim Jquery -->
+
+
     </body>
 
     
