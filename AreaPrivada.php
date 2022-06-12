@@ -60,7 +60,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
             <li><a id="btn_option" href="javascript::" onclick="load_page()"><ion-icon name="chatbubble"></ion-icon></a></li>
 
-            <li class="active"><a id="btn_option" href="home.php""><ion-icon class="active" name="home"></ion-icon></a></li>
+            <li class="active"><a id="btn_option" href="AreaPrivada.php"><ion-icon class="active" name="home"></ion-icon></a></li>
 
             <li><a id="btn_option" href=""><ion-icon name="filter"></ion-icon> </a></li>
 
@@ -159,8 +159,7 @@ date_default_timezone_set('America/Sao_Paulo');
         </main>
     </div>
 
-    <script src='js/hammer.min.js'></script>
-    <script src='js/main.js'></script>
+
 
     <!-- Bloquear o drag da imagem -->
     <script type="text/javascript">
@@ -214,6 +213,8 @@ date_default_timezone_set('America/Sao_Paulo');
     <!-- Fim classe active dos botões do menu superior--> 
     <script src="js/sweetalert2.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
+    <script src='js/hammer.min.js'></script>
+    <script src='js/main.js'></script>
 
 </body>
 </html>

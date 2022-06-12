@@ -57,7 +57,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
             <li><a id="btn_option" href="javascript::" onclick="load_page()"><ion-icon name="chatbubble"></ion-icon></a></li>
 
-            <li class="active"><a id="btn_option" href="home.php""><ion-icon class="active" name="home"></ion-icon></a></li>
+            <li class="active"><a id="btn_option" href="AreaPrivada.php"><ion-icon class="active" name="home"></ion-icon></a></li>
 
             <li><a id="btn_option" href=""><ion-icon name="filter"></ion-icon> </a></li>
 
